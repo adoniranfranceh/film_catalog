@@ -1,0 +1,20 @@
+<%= link_to "Editar #{@director.name}", edit_director_path %> <br><br>
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        <h1>
+          <%= @director.films.count > 1 ? 'Filmes dirigidos' : 'Filme dirigido' %> por <%= @director.name %>
+        </h1>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @director.films.each do |film| %>
+      <tr>
+        <td><%= film.title %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

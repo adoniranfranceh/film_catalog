@@ -1,0 +1,32 @@
+<h1>Filmes</h1>
+
+<%= link_to 'Registrar filme', new_film_path %> <br><br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Ano de lançamento</th>
+      <th>Pôster</th>
+      <th>Atualmente</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @films.each do |film| %>
+      <tr>
+        <td>
+          <%= link_to film.title, film %>
+        </td>
+        <td>
+          <%= film.release_year %>
+        </td>
+        <td>
+          <%= image_tag film.poster, class: "image" if film.poster.attached? %>
+        </td>
+        <td>
+          <%= released?(film) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

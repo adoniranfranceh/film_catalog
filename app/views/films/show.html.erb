@@ -1,0 +1,43 @@
+<h1><%= @film.title %></h1>
+<%= link_to "Editar #{@film.title}", edit_film_path %>
+<dl>
+  <dt>
+  	<strong>Título:</strong> <%= @film.title %>	
+  </dt>
+
+  <dd>
+  	<strong>Ano de lançamento:</strong> <%= @film.release_year %>
+  </dd>
+
+  <dd>
+  	<strong>Sinopse:</strong> <%= @film.synopsis %>
+  </dd>
+
+  <dd>
+  	<strong>País de origem:</strong> <%= @film.country_of_origin %>
+  </dd>
+
+  <dd>
+    <strong>Duração</strong> <%= @film.duration %> minutos
+  </dd>
+
+  <dd>
+  	<strong>Diretor:</strong> <%= @film.director.name if @film.director %>
+  </dd>
+
+  <dd>
+  	<strong>Gênero:</strong> <%= @film.genre.name if @film.genre %>
+  </dd>
+
+  <dd>
+    <strong>Pôster</strong> <%= image_tag @film.poster, class: "image"  if @film.poster.attached? %>
+  </dd>
+</dl>
+
+<h3><%= released?(@film) %></h3>
+
+<% if @film.status == 'draft' %>
+  <%= button_to 'Publicar', publish_film_path, {method: :patch} %>
+<% else %>
+  <%= button_to 'Esconder', draft_film_path, {method: :patch} %>
+<% end %>

@@ -1,0 +1,15 @@
+<h1>Gêneros de filmes</h1>
+
+<%= link_to 'Registrar novo gênero', new_genre_path %> <br><br>
+
+<table>
+  <% @genres.each do |genre| %>
+  <thead>
+    <th>Nome</th>
+  </thead>
+  <tbody>
+    <td><%= link_to genre.name, genre %></td>
+  </tbody>
+  <% end %>
+</table>
+

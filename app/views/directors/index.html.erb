@@ -1,0 +1,18 @@
+<h1>Diretores de filmes</h1>
+
+<%= link_to 'Registrar diretor', new_director_path %> <br><br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome do Diretor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @directors.each do |director| %>
+      <tr>
+        <td><%= link_to director.name, director %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
